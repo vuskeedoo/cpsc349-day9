@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Player characters on a grid</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.5.0/modern-normalize.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Use the controls to move the characters.</h1>
+    </header>
+
+    <main>
+        <table id="grid">
+            <tr>
+                <td data-x="0" data-y="0">(0, 0)</td>
+                <td data-x="1" data-y="0">(1, 0)</td>
+                <td data-x="2" data-y="0">(2, 0)</td>
+                <td data-x="3" data-y="0">(3, 0)</td>
+                <td data-x="4" data-y="0">(4, 0)</td>
+                <td data-x="5" data-y="0">(5, 0)</td>
+                <td data-x="6" data-y="0">(6, 0)</td>
+                <td data-x="7" data-y="0">(7, 0)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="1">(0, 1)</td>
+                <td data-x="1" data-y="1">(1, 1)</td>
+                <td data-x="2" data-y="1">(2, 1)</td>
+                <td data-x="3" data-y="1">(3, 1)</td>
+                <td data-x="4" data-y="1">(4, 1)</td>
+                <td data-x="5" data-y="1">(5, 1)</td>
+                <td data-x="6" data-y="1">(6, 1)</td>
+                <td data-x="7" data-y="1">(7, 1)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="2">(0, 2)</td>
+                <td data-x="1" data-y="2">(1, 2)</td>
+                <td data-x="2" data-y="2">(2, 2)</td>
+                <td data-x="3" data-y="2">(3, 2)</td>
+                <td data-x="4" data-y="2">(4, 2)</td>
+                <td data-x="5" data-y="2">(5, 2)</td>
+                <td data-x="6" data-y="2">(6, 2)</td>
+                <td data-x="7" data-y="2">(7, 2)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="3">(0, 3)</td>
+                <td data-x="1" data-y="3">(1, 3)</td>
+                <td data-x="2" data-y="3">(2, 3)</td>
+                <td data-x="3" data-y="3">(3, 3)</td>
+                <td data-x="4" data-y="3">(4, 3)</td>
+                <td data-x="5" data-y="3">(5, 3)</td>
+                <td data-x="6" data-y="3">(6, 3)</td>
+                <td data-x="7" data-y="3">(7, 3)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="4">(0, 4)</td>
+                <td data-x="1" data-y="4">(1, 4)</td>
+                <td data-x="2" data-y="4">(2, 4)</td>
+                <td data-x="3" data-y="4">(3, 4)</td>
+                <td data-x="4" data-y="4">(4, 4)</td>
+                <td data-x="5" data-y="4">(5, 4)</td>
+                <td data-x="6" data-y="4">(6, 4)</td>
+                <td data-x="7" data-y="4">(7, 4)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="5">(0, 5)</td>
+                <td data-x="1" data-y="5">(1, 5)</td>
+                <td data-x="2" data-y="5">(2, 5)</td>
+                <td data-x="3" data-y="5">(3, 5)</td>
+                <td data-x="4" data-y="5">(4, 5)</td>
+                <td data-x="5" data-y="5">(5, 5)</td>
+                <td data-x="6" data-y="5">(6, 5)</td>
+                <td data-x="7" data-y="5">(7, 5)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="6">(0, 6)</td>
+                <td data-x="1" data-y="6">(1, 6)</td>
+                <td data-x="2" data-y="6">(2, 6)</td>
+                <td data-x="3" data-y="6">(3, 6)</td>
+                <td data-x="4" data-y="6">(4, 6)</td>
+                <td data-x="5" data-y="6">(5, 6)</td>
+                <td data-x="6" data-y="6">(6, 6)</td>
+                <td data-x="7" data-y="6">(7, 6)</td>
+            </tr>
+            <tr>
+                <td data-x="0" data-y="7">(0, 7)</td>
+                <td data-x="1" data-y="7">(1, 7)</td>
+                <td data-x="2" data-y="7">(2, 7)</td>
+                <td data-x="3" data-y="7">(3, 7)</td>
+                <td data-x="4" data-y="7">(4, 7)</td>
+                <td data-x="5" data-y="7">(5, 7)</td>
+                <td data-x="6" data-y="7">(6, 7)</td>
+                <td data-x="7" data-y="7">(7, 7)</td>
+            </tr>
+        </table>
+    </main>
+
+    <h2>Player 1</h2>
+    <nav id="player1">
+        <button data-direction="up">w</button>
+        <button data-direction="left">a</button>
+        <button data-direction="down">s</button>
+        <button data-direction="right">f</button>
+    </nav>
+
+    <h2>Player 2</h2>
+    <nav id="player2">
+        <button data-direction="up">i</button>
+        <button data-direction="left">j</button>
+        <button data-direction="down">k</button>
+        <button data-direction="right">l</button>
+    </nav>
+
+    <footer>
+        <h3>Credits</h3>
+        <ul>
+            <li>Graphics courtesy of <a href="https://www.gameart2d.com/freebies.html">Game Art 2D</a>.</li>
+            <li>Sprite sheet CSS courtesy of <a href="http://www.spritecow.com/">Sprite Cow</a>.</li>
+        </ul>
+    </footer>
+</body>
+</html>
