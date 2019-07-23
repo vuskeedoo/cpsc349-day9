@@ -122,16 +122,51 @@
     </ul>
     <script type="text/javascript">
       window.onload = function() {
-        var board = document.getElementsByTagName("td");
-        for (var i = 0; i < board.length; i++) {
+        fillBoard();
+        controller();
+      };
+
+      function fillBoard() {
+        let board = document.getElementsByTagName("td");
+        for (let i = 0; i < board.length; i++) {
           board[i].innerHTML = ('<img src="img/tile.png" alt="tile" class="tile"/>');
         }
+        for(let i=0; i<board.length; i++) {
+          if(board[i].getAttribute('data-x') == '0' && board[i].getAttribute('data-y') == '0') {
+            board[i].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
+          }
+          if(board[i].getAttribute('data-x') == '7' && board[i].getAttribute('data-y') == '7') {
+            board[i].innerHTML = ('<img id="sprite-santa" src="img/santa.png" alt="santa"/>');
+          }
+        }
+      }
 
-        //var datax = document.querySelectorAll('[data-x]');
-        board[0].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
-        board[63].innerHTML = ('<img id="sprite-santa" src="img/santa.png" alt="santa"/>');
-        console.log(board);
-      };
+      function controller() {
+        let player = document.getElementById("player1")
+
+        player.addEventListener('w', function(w){
+          w.move("player1", 1, 0);
+          console.log("move up");
+        })
+        player.addEventListener('a', function(a){
+          sprite.move("player1", 0, -1);
+          console.log("move left");
+        })
+        document.getElementById("player1").addEventListener('s', function(s){
+          sprite.move("player1", -1, 0);
+          console.log("move down");
+        })
+        document.getElementById("player1").addEventListener('d', function(d){
+          sprite.move("player1", 0, 1);
+          console.log("move right");
+        })
+      }
+
+      function move(player, x, y) {
+        if(player == 'player1') {
+          console.log(document.getElementsByTagName("img"));
+        }
+      }
     </script>
   </footer>
 </body>

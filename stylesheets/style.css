@@ -8,13 +8,13 @@
 }
 
 #sprite-dino {
-	background: url('imgs/dinoidle.png') no-repeat -8px -35px;
+	background: url('img/dino.png') no-repeat -8px -35px;
   width: 100px;
 	height: 100px;
 }
 
 #sprite-santa {
-	background: url('imgs/santaidle.png') no-repeat -205px -40px;
+	background: url('img/santa.png') no-repeat -205px -40px;
   width: 100px;
 	height: 100px;
 }
