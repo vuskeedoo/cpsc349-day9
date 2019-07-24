@@ -122,16 +122,13 @@
     </ul>
     <script type="text/javascript">
       window.onload = function() {
-        fillBoard();
-        controller();
+        startGame();
       };
 
-      function fillBoard() {
+      function startGame() {
         let board = document.getElementsByTagName("td");
-        for (let i = 0; i < board.length; i++) {
-          board[i].innerHTML = ('<img src="img/tile.png" alt="tile" class="tile"/>');
-        }
         for(let i=0; i<board.length; i++) {
+          board[i].innerHTML = ('<img id="tile" src="img/tile.png" alt="tile"/>');
           if(board[i].getAttribute('data-x') == '0' && board[i].getAttribute('data-y') == '0') {
             board[i].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
           }
@@ -139,32 +136,47 @@
             board[i].innerHTML = ('<img id="sprite-santa" src="img/santa.png" alt="santa"/>');
           }
         }
+        document.addEventListener('keypress', function(e) {
+          if(e.key == 'w') {
+            console.log("move up");
+          } else if (e.key == 'a') {
+            console.log("move left");
+          } else if (e.key == 's') {
+            move("player1", "down");
+            console.log("move down");
+          } else if (e.key == 'd') {
+            console.log("move right");
+          } else if (e.key == 'i') {
+            console.log("move up");
+          } else if (e.key == 'j') {
+            console.log("move left");
+          } else if (e.key == 'k') {
+            console.log("move down");
+          } else if (e.key == 'l') {
+            console.log("move right");
+          }
+        });
       }
 
-      function controller() {
-        let player = document.getElementById("player1")
-
-        player.addEventListener('w', function(w){
-          w.move("player1", 1, 0);
-          console.log("move up");
-        })
-        player.addEventListener('a', function(a){
-          sprite.move("player1", 0, -1);
-          console.log("move left");
-        })
-        document.getElementById("player1").addEventListener('s', function(s){
-          sprite.move("player1", -1, 0);
-          console.log("move down");
-        })
-        document.getElementById("player1").addEventListener('d', function(d){
-          sprite.move("player1", 0, 1);
-          console.log("move right");
-        })
-      }
-
-      function move(player, x, y) {
+    function move(player, direction) {
+        let grid = document.getElementById("grid");
+        let cells = grid.getElementsByTagName("td");
+        //let sprite = document.getElementById('sprite-dino');
+        console.log(cells);
         if(player == 'player1') {
-          console.log(document.getElementsByTagName("img"));
+          let currX = 0;
+          let currY = 0;
+          //console.log(cells.getElementsByTagName("img"));
+          for(let i=0; i<cells.length; i++) {
+            if(cells[i].getElementsByTagName("img")[0].getAttribute("id") == 'sprite-dino') {
+              cells[i].innerHTML = ('<img id="tile" src="img/tile.png" alt="tile"/>');
+              let currX = cells[i].getAttribute("data-x");
+              let currY = cells[i].getAttribute("data-y");
+            }
+            if(direction == 'down' && cells[i].getAttribute("data-x") == currX && cells[i].getAttribute("data-y") == currY+1) {
+              cells[i].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
+            }
+          }
         }
       }
     </script>

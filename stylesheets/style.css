@@ -9,12 +9,17 @@
 
 #sprite-dino {
 	background: url('img/dino.png') no-repeat -8px -35px;
-  width: 100px;
-	height: 100px;
+  width: 50px;
+	height: 50px;
 }
 
 #sprite-santa {
 	background: url('img/santa.png') no-repeat -205px -40px;
-  width: 100px;
-	height: 100px;
+  width: 50px;
+	height: 50px;
+}
+
+#tile {
+  width: 50px;
+	height: 50px;
 }
