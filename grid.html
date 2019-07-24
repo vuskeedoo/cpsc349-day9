@@ -138,43 +138,55 @@
         }
         document.addEventListener('keypress', function(e) {
           if(e.key == 'w') {
-            console.log("move up");
+            console.log("player1 move up");
           } else if (e.key == 'a') {
-            console.log("move left");
+            console.log("player1 move left");
           } else if (e.key == 's') {
-            move("player1", "down");
-            console.log("move down");
+            getLocation("player1", "down");
+            console.log("player1 move down");
           } else if (e.key == 'd') {
-            console.log("move right");
+            console.log("player1 move right");
           } else if (e.key == 'i') {
-            console.log("move up");
+            console.log("player2 move up");
           } else if (e.key == 'j') {
-            console.log("move left");
+            console.log("player2 move left");
           } else if (e.key == 'k') {
-            console.log("move down");
+            console.log("player2 move down");
           } else if (e.key == 'l') {
-            console.log("move right");
+            console.log("player2 move right");
           }
         });
       }
 
-    function move(player, direction) {
+    function getLocation(player) {
         let grid = document.getElementById("grid");
         let cells = grid.getElementsByTagName("td");
         //let sprite = document.getElementById('sprite-dino');
-        console.log(cells);
+        //console.log(cells);
+        let currX = 0;
+        let currY = 0;
         if(player == 'player1') {
-          let currX = 0;
-          let currY = 0;
           //console.log(cells.getElementsByTagName("img"));
           for(let i=0; i<cells.length; i++) {
             if(cells[i].getElementsByTagName("img")[0].getAttribute("id") == 'sprite-dino') {
               cells[i].innerHTML = ('<img id="tile" src="img/tile.png" alt="tile"/>');
-              let currX = cells[i].getAttribute("data-x");
-              let currY = cells[i].getAttribute("data-y");
+              currX = cells[i].getAttribute("data-x");
+              currY = cells[i].getAttribute("data-y");
+              console.log(currX+" "+currY);
+              move("player1", "down", currX, currY);
             }
-            if(direction == 'down' && cells[i].getAttribute("data-x") == currX && cells[i].getAttribute("data-y") == currY+1) {
-              cells[i].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
+          }
+        }
+      }
+
+      function move(player, direction, x, y) {
+        let grid = document.getElementById("grid");
+        let cells = grid.getElementsByTagName("td");
+        for(let i=0; i<cells.length; i++) {
+          if(cells[i].getAttribute("data-x") == x && cells[i].getAttribute("data-y") == y+1) {
+            console.log(cells[i]);
+            if(player == 'player1') {
+                cells[i].innerHTML = ('<img id="sprite-dino" src="img/dino.png" alt="dino"/>');
             }
           }
         }
