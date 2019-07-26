@@ -99,7 +99,7 @@ function move (player, direction) {
   }
 
   if (legalMove(newx, newy)) {
-    // replace(tile, oldx, oldy);
+    replace('hi', oldx, oldy);
     replace(player, newx, newy);
     if (player === 'player1') {
       p1.x = newx;
